@@ -26,3 +26,17 @@ resource "aws_internet_gateway" "mtc_internet_gateway" {
     Name = "dev-internet-gateway"
   }
 }
+
+resource "aws_route_table" "mtc_public_route_table" {
+  vpc_id = aws_vpc.mtc_vpc.id
+
+  tags = {
+    Name = "dev-public-route-table"
+  }
+}
+
+resource "aws_route" "default_public_route" {
+  route_table_id         = aws_route_table.mtc_public_route_table.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.mtc_internet_gateway.id
+}
