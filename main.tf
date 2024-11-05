@@ -65,3 +65,8 @@ resource "aws_security_group" "mtc_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+resource "aws_key_pair" "mtckey" {
+  key_name   = "mtckey"
+  public_key = file("~/.ssh/mtckey.pub")
+}
