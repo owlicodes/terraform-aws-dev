@@ -4,6 +4,12 @@ This is a terraform project that spins up an AWS EC2 instance, the instance will
 
 ## Commands
 
+Initialize Terraform
+
+```bash
+terraform init
+```
+
 Check the resources.
 
 ```bash
