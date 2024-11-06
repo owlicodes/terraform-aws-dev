@@ -83,4 +83,13 @@ resource "aws_instance" "dev_ec2_instance" {
   tags = {
     Name = "dev-ec2-instance"
   }
+
+  provisioner "local-exec" {
+    command = templatefile("ssh-config.tpl", {
+      hostName     = self.public_ip,
+      user         = "ec2-user",
+      identityFile = "~/.ssh/mtckey"
+    })
+    interpreter = ["Powershell", "-Command"]
+  }
 }
