@@ -93,3 +93,7 @@ resource "aws_instance" "dev_ec2_instance" {
     interpreter = ["Powershell", "-Command"]
   }
 }
+
+output dev_ec2_instance_public_ip {
+  value = aws_instance.dev_ec2_instance.public_ip
+}
