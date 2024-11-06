@@ -27,3 +27,9 @@ Replace the ssh config file, you need to list the state first, get the name of t
 ```bash
 terraform apply -replace {name_of_ec2_instance}
 ```
+
+Destory all the resources created.
+
+```bash
+terraform destroy
+```
