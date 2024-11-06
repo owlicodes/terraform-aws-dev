@@ -85,7 +85,7 @@ resource "aws_instance" "dev_ec2_instance" {
   }
 
   provisioner "local-exec" {
-    command = templatefile("ssh-config.tpl", {
+    command = templatefile(var.host_os, {
       hostName     = self.public_ip,
       user         = "ec2-user",
       identityFile = "~/.ssh/mtckey"
